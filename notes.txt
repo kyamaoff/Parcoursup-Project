@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="tabs">
+        <button onclick="openTab('loginTab')">Login</button>
+        <button onclick="openTab('signupTab')">Sign Up</button>
+    </div>
+
+    <div id="signupTab" class="tab-content">
+        <h1>Sign Up</h1>
+        
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form action="{{ url_for('register') }}" method="post">
+            <input type="hidden" name="action" value="signup">
+            <label for="newUsername">Username:</label>
+            <input type="text" id="newUsername" name="newUsername" required>
+            <label for="newEmail">Email:</label>
+            <input type="email" id="newEmail" name="newEmail" required>
+            <label for="newPassword">Password:</label>
+            <input type="password" id="newPassword" name="newPassword" required>
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+
+    <script>
+        function openTab(tabName) {
+            var i, tabContent
+            tabContent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabContent.length; i++) {
+                tabContent[i].style.display = "none";
+            }
+            document.getElementById(tabName).style.display = "block";
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+@media screen and (max-width: 1400px) {
+    .product-gallery  {
+        justify-content: space-between;
+        background: blue;
+    }
+    .bottom-container {
+        display: block;
+    }
+    .product {
+        .bottom-container-card {
+            max-height: 130px;
+        }
+    }
+    
+    .product-gallery .product {
+        align-items: center;
+        min-width: 48%;
+        flex-direction: row;
+        h3 {
+            font-size: 1.6em;
+            margin-bottom: 5px;
+        }
+        .price-quantity-container {
+            font-size: 1em;
+        }
+        .product-image {
+            width: 300;
+            border-top-right-radius: 0 ;
+            img {
+                border-bottom-left-radius: inherit;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+}

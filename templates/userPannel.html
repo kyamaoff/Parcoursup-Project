@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parcoursup Project | Utilisateur</title>
+  <link rel="stylesheet" href="{{url_for('static', filename='css/user.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/reset.css')}}">  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<body>
+    {% include 'connectNavBar.html'%}
+  <main>
+    <section class="account-gestion">
+      <div class="container-component-account">
+        <h2>Bonjour, {{username}}</h2>
+        <span class="money-container">
+          {{money}} $ 
+        </span>
+      </div>
+    </section>
+    <!-- <div class="shadow-effect-line">
+      
+    </div> -->
+    <section class="bottom-container">
+      <section class="cart-gestion-container">
+        <h4>Panier</h4>
+        <div class="product-gallery">
+          {% for item in user_cart %}
+          <div class="product">
+            <div class="product-image">
+              <form method="post" action="{{ url_for('cart.remove_item') }}">
+                <input type="hidden" name="product_id" value="{{ item.product_id }}">
+                <button class="delete-btn" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);transform: msFilter"><path d="M5 20a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8h2V6h-4V4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2H3v2h2zM9 4h6v2H9zM8 8h9v12H7V8z"></path><path d="M9 10h2v8H9zm4 0h2v8h-2z"></path></svg></button>
+              </form>
+              <img src="{{ item.product_image }}" alt="{{ item.product_name }}">  
+            </div>
+            <div class="bottom-container-card">
+              <div class="product-name">
+                <h3>{{ item.product_name }}</h3>
+              </div>
+              <span class="price-quantity-container">
+                <div class="product-price">
+                  <p>{{ item.product_price*item.quantity }} $ </p>
+                </div>
+                <div class="product-quantity">
+                  <p>Quantité : {{ item.quantity }}</p>
+                </div>
+              </span>
+              <div class="stock">
+                <p>{{item.stock_status}}</p>
+              </div>
+              <div class="product-actions">
+                {% if item.product_price*item.quantity < money %}
+                  <form method='post' action="{{url_for('cart.purchase_from_cart')}}">
+                    <input type="hidden" name="product_id" value="{{item.product_id}}">
+                    <input type="hidden" name="quantity" value="{{item.quantity}}">
+                    <button class='buy-btn'type="submit">Acheter</button>
+                  </form>
+                {% elif item.product_quantity < item.quantity%}
+                    <div class="stock-error">Stock insuffisant</div>
+                {% else %}
+                    <div class="sold-error">Solde insuffisant</div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+      <section class="order-gestion-container">
+        <div class="order-history">
+          <h4>Commandes</h4>
+            {% for order in user_orders %}
+            <div class="orders-gallery"></div>
+                <div class="order">
+                  <span class="first-line">
+                    <p>{{ order.product_name }}</p>
+                  </span>
+                  <span class="second-line">
+                    <p>{{order.price}} $</p>
+                    <p class="datetime">{{ order.order_date }}</p>
+                  </span>
+                </div>
+            {% endfor %}
+        </div>
+      </section>
+    </section>
+  </main>
+  <script src="{{ url_for('static', filename='js/user.js')}}"></script>
+</body>
+</html>

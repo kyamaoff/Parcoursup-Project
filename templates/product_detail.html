@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Angkor&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/product_details.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/navbar.css')}}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Product page</title>
+</head>
+<body>
+    {% if connected %}
+        {% include 'connectNavBar.html' %}
+    {% else %}
+        {% include 'navbar.html' %}
+    {% endif %}
+    {% block content %}
+    <main>
+        <img class="block-left" src="{{product.Image}}" alt="{{product.Name}}">
+        <div class="block-right">
+            <div class="component-top">
+                <h2>{{product.Name}}</h2>
+                <span class="price-stock">
+                    <p>◘ {{product.Price}} $</p>
+                    <p>{{stock_status}}</p>
+                </span>
+            </div>
+                <p class="description">
+                    {{product.Description}}
+                </p>
+            <div class="redirect-buttons">
+                <form id="productForm" method="post" action="{{ url_for('products.add_item_to_cart', product_id=product.ProductId) }}">
+                    <input type="hidden" name="product_id" value="{{ product.ProductId }}">
+                    <span class="input-wrapper">
+                        <button type="button" id="decrement">-</button>
+                        <input name='quantity' type="number" value="1" id="quantity" min='1' max='99' />
+                        <button type="button" id="increment">+</button>
+                    </span>
+                    <button class='add_cart_button' type="submit">Ajouter au panier</button>
+                    <button class='pay_button' type="submit" formaction="{{ url_for('products.purchase', product_id=product.ProductId) }}">Acheter maintenant</button>
+                    <style>
+                        button {
+                            background: rgba(79, 79, 79, 0.543);
+                        }
+                        button:hover {
+                            background: rgba(79, 79, 79, 0.543);
+                        }
+                    </style>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    {% endblock content%}
+    <script>
+         const quantityInput = document.querySelector("#quantity");
+
+        document.getElementById('quantity').addEventListener('input', function() {
+            quantityInput.value = this.value;
+        });
+
+        const incrementButton = document.querySelector("#increment");
+        const decrementButton = document.querySelector("#decrement");
+
+        incrementButton.addEventListener("click", () => {
+            quantityInput.value = parseInt(quantityInput.value) + 1;
+        });
+
+        decrementButton.addEventListener("click", () => {
+            // Vérifiez si la valeur est supérieure à 1 pour éviter les valeurs négatives
+            if (parseInt(quantityInput.value) > 1) {
+                quantityInput.value = parseInt(quantityInput.value) - 1;
+            }
+        });
+    
+    </script>
+
+</body>
+</html>

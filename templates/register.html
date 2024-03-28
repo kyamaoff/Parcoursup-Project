@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Design by foolishdeveloper.com -->
+    <title>Glassmorphism login Form Tutorial in html css</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css')}}">
+</head>
+<body>
+<div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+</div>
+<form action="{{ url_for('account.register') }}" method="post">
+    <input type="hidden" name="action" value="signup">
+    <h3>S'inscrire</h3>
+
+    <label for="NewEmail">Email</label>
+    <input type="text" placeholder="email" id="NewEmail" name="newEmail">
+    <span class="error"><p>{{ errors.email }}</p></span> <!-- Error message for email -->    
+    <label for="NewUsername">Pseudo</label>
+    <input type="text" placeholder="pseudo" id="NewUsername" name="newUsername">
+    <span class="error"><p>{{ errors.username }}</p></span> <!-- Error message for username -->
+    
+    <label for="NewPassword">Mot de passe</label>
+    <input type="password" placeholder="mot de passe" id="NewPassword" name="newPassword">
+    <span class="error">
+        <p>{{errors.password}}</p>
+    </span>    
+    <button class="login-btn" type="submit">S'inscrire</button>
+    <div class="sign-up">
+        <a href="{{ url_for('account.login')}}" class="signup-btn">Se connecter</a>
+    </div>
+</form>
+</body>
+</html>

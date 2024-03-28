@@ -1,0 +1,30 @@
+    nav {
+        width: 100vw;
+        height: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .container {
+        width: 90%;
+        height: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 600;
+    }
+    .container a {
+        font-weight: 700;
+        font-size: 1.5vw;
+    }
+    .nav-link {
+        display: flex;
+        font-weight: 500;
+        font-size: 1vw;
+    }
+    .nav-link li{
+        margin-right: 40px;
+
+    }
+    

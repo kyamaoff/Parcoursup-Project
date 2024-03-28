@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/products.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css')}}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <title>Ecom Parcoursup | produits</title>
+</head>
+<body>
+    {% if connected %}
+        {% include 'connectNavBar.html' %}
+    {% else %}
+        {% include 'navbar.html' %}
+    {% endif %}
+    <section class="product-gallery">
+
+        {% for product in  products%}
+        <div class="card">
+            <div class='main'>
+            <img class='productImage' src="{{product.Image}}" alt="{{product.Name}}" />
+            <div class='productInfo'>
+                <h2>{{product.Name}}</h2>
+                <div class="infos-utils">
+                    <div class="price">
+                    <ins>◘</ins>
+                    <p> {{ product.Price }} $</p>
+                    </div>
+                    <div class="stock">
+                    <ins>◷</ins>
+                    <p>{{product.stock_status}}</p> 
+                    </div>
+                </div>
+            </div>
+            <div class="discover-button">
+                <a href="{{ url_for('products.product_detail', product_id=product.ProductId) }}">Découvrir</a>
+            </div>
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+</body>
+</html>

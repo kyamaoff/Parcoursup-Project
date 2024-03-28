@@ -1,0 +1,260 @@
+body { 
+    background: rgb(19,19,19);
+    background: linear-gradient(111deg, rgba(19,19,19,1) 0%, rgba(29,0,41,1) 15%, rgba(0,5,40,1) 31%, rgba(19,19,19,1) 44%, rgba(6,0,34,1) 60%, rgba(0,5,48,1) 69%, rgba(18,0,54,1) 78%, rgba(19,19,19,1) 87%, rgba(19,19,19,1) 100%);
+    background-repeat: no-repeat;
+    background-size: 100vw ;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: hidden;
+}
+main {
+    background: rgb(20,20,20);
+    background: linear-gradient(90deg, rgba(20, 20, 20, 0.532) 0%, rgba(18, 18, 18, 0.56) 100%);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    box-shadow: 12px 12px 35px 8px rgba(234,190,255,0.09);
+    -webkit-box-shadow: 12px 12px 35px 8px rgba(234,190,255,0.09);
+    -moz-box-shadow: 12px 12px 35px 8px rgba(234,190,255,0.09); 
+    border-radius:2vw;
+    margin-top: 50px;
+    margin-bottom: 40px;
+    width: 90vw;
+    display: grid;
+    grid-template-columns: 42% 58%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+main .block-left {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    border-top-left-radius: inherit; 
+    border-bottom-left-radius: inherit;
+}
+
+main .block-right{
+    width: auto;
+    padding: 3vw;
+    display: flex;  
+    flex-direction: column;
+    justify-content:space-evenly;
+}
+
+.block-right {
+    .component-top {
+        display: flex;
+        flex-direction: column;
+        height: 25%;
+        justify-content: space-around   ;
+    }
+    h2 {
+        font-size: 3.8vw;
+        font-weight: 700;
+        font: 'Angkor' ,serif;
+        color: white ;
+    }
+    .price-stock {
+        display: flex;
+        align-items: center;
+        p {
+            margin-right: 5vw;
+            font-size: 1.6vw;
+            font-weight: 600;
+        }
+        p:first-child {
+            color: #ee83e5;
+        }
+        p:last-child {
+            color: white;
+            padding: 5px 20px 5px 20px ;
+        }
+    }
+    .description {
+        color: white;
+        font-size: 1.4vw;
+        line-height: 2.1vw;
+    }
+    .redirect-buttons {
+        form {
+            display: flex;
+            justify-content: space-between;
+            width: 90%;
+            height: 3vw;
+        }
+        form .add_cart_button, .pay_button {
+            width: 31%;
+            height: 100%;
+            border-radius: 0.7vw;
+            border: none;
+            font-size: 0.8vw;
+            font-weight: 600;
+        }
+        form .add_cart_button:hover{
+            cursor: pointer;
+            background: rgb(255,85,23);
+            background: linear-gradient(140deg, rgba(255,85,23,0.5) 0%, rgba(222,154,17,0.5) 100%);
+            transition: 0.1s;
+        }
+
+        form .pay_button:hover{
+            cursor: pointer;
+            background: rgb(115,18,218);
+            background: linear-gradient(140deg, rgba(115,18,218,.5) 0%, rgba(0,64,158,.5) 100%);
+            transition: 0.1s;
+        }
+        form .add_cart_button {
+            background: rgb(255,85,23);
+            background: linear-gradient(140deg, rgba(255,85,23,1) 0%, rgba(222,154,17,1) 100%);
+            box-shadow: 2px 21px 48px -3px rgba(255,255,255,0.06);
+            -webkit-box-shadow: 2px 21px 48px -3px rgba(255,255,255,0.06);
+            -moz-box-shadow: 2px 21px 48px -3px rgba(255,255,255,0.06);
+            color: #fff;
+        }
+        form .pay_button {
+            background: rgb(115,18,218);
+            background: linear-gradient(140deg, rgba(115,18,218,1) 0%, rgba(0,64,158,1) 100%);
+            box-shadow: 2px 21px 48px -3px rgba(255,255,255,0.06);
+            -webkit-box-shadow: 2px 21px 48px -3px rgba(255,255,255,0.06);
+            -moz-box-shadow: 2px 21px 48px -3px rgba(255,255,255,0.06);
+            color: #fff ;
+        }
+        }
+    }
+
+
+.input-wrapper {
+    width: 31%;
+    height: 100%;
+    display: flex;
+    border-radius: 0.7vw;
+  }
+  
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+  }
+  
+  input[type="number"] {
+    -moz-appearance: textfield; 
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .input-wrapper * {
+    background: rgba(19, 19, 19, 0.934);
+    color: #fff;
+    border: none;
+    width: 50px;
+    flex: 1;
+  }
+  
+  .input-wrapper button {
+    cursor: pointer;
+    font-size: 1vw;
+  }
+  
+  .input-wrapper button:first-child {
+    border-radius: 0.7vw 0 0 0.7vw;
+    color: rgb(255, 136, 62);
+  }
+  
+  .input-wrapper button:last-child {
+    border-radius: 0 0.7vw 0.7vw 0; 
+    color: rgb(152, 73, 255);
+  }
+
+@media screen and (max-width: 1000px) {
+    main {
+        grid-template-columns: 100%;
+        width: 50vw;
+    }
+    main .block-left {
+        border-radius: 0;
+        border-top-left-radius: inherit;
+        border-top-right-radius: inherit;
+    }
+    .block-right {
+        h2 {
+            margin-bottom: 10px;
+        }
+        .price-stock {
+            margin-bottom: 70px;
+        }
+    }
+}
+
+@media screen and (max-width: 900px){
+    body {
+        overflow-y: visible;
+    }
+    main {
+        width: 60vw;
+        height: auto;
+    }
+    .block-right {
+        h2 {
+            font-size: 2em;
+        }
+        .price-stock {
+            p {
+                font-size: 1.2em;
+            }
+        }
+        .description {
+            font-size: 1em;
+            line-height: 1.3em;
+        }
+        .redirect-buttons {
+            height: 80px;
+            form {
+                display: block;
+            }
+            form .add_cart_button, .pay_button {
+                width: 43%;
+                height: 35px;
+                border-radius: 0.7vw;
+                border: none;
+                font-size: 0.8em;
+                font-weight: 600;
+            }
+            form .add_cart_button {
+                margin-right: 10px;
+            }
+        }
+    }
+    .input-wrapper {
+        width: 43%;
+        height: 35px;
+        font-size: 1em;
+        margin-bottom: 10px;
+    }
+    .input-wrapper button {
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 800px){
+    main {
+        width: 70vw;
+    }
+
+}
+
+@media screen and (max-width: 700px){
+    main {
+        width: 80vw;
+    }
+
+}
+
+@media screen and (max-width: 600px){
+    main {
+        width: 90vw;
+    }
+
+}

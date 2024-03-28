@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Design by foolishdeveloper.com -->
+    <title>Glassmorphism login Form Tutorial in html css</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css')}}">
+    <style>
+        .success-message {
+            color: blue;
+        }
+        .error-message {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+</div>
+<form action="{{ url_for('account.login') }}" method="post">
+    <input type="hidden" name="action" value="login">
+    <h3>Se connecter</h3>
+    <label for="username">Pseudo</label>
+    <input type="text" placeholder="pseudo" id="username" name="username">
+
+    <label for="password">Mot de passe</label>
+    <input type="password" placeholder="mot de passe" id="password" name="password">
+    <div class="info-message">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for category, message in messages %}
+        {% if category == 'success' %}
+        <p style=" color: rgb(34, 123, 248);"class="success-message">{{ message }}</p>
+        {% elif category == 'error' %}
+        <p style="color: red;"class="error-message">{{ message }}</p>
+        {% endif %}
+        {% endfor %}
+        {% endwith %}
+    </div>
+    <button class="login-btn">Se connecter</button>
+    <div class="sign-up">
+        <a href="{{ url_for('account.register')}}" class="signup-btn">S'inscrire</a>
+    </div>
+    <p class="redirect-informations"></p>
+</form>
+</body>
+</html>

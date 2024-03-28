@@ -1,0 +1,364 @@
+body {
+    background: rgb(19,19,19);
+    background: linear-gradient(111deg, rgba(19,19,19,1) 0%, rgba(29,0,41,1) 15%, rgba(0,5,40,1) 31%, rgba(19,19,19,1) 44%, rgba(6,0,34,1) 60%, rgba(0,5,48,1) 69%, rgba(18,0,54,1) 78%, rgba(19,19,19,1) 87%, rgba(19,19,19,1) 100%);
+    background-repeat: no-repeat;
+    background-size: 100vw ;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center ;
+    justify-content: center;
+}
+
+
+main {
+    width: 99vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 100px;
+    margin-top: 50px;
+}
+
+.account-gestion {
+    margin-bottom: 2vw;
+    width: 91%;
+    height: 10vw;
+    display: flex;
+    justify-content: center;
+    border-radius: 2vw;
+    font-family: 'Madimi One', sans-serif;
+    color: #ffffff;
+    backdrop-filter: blur(5px) saturate(100%);
+    -webkit-backdrop-filter: blur(5px) saturate(100%);
+    background: rgb(33, 33, 33);
+    border-radius: 1vw;
+    border: 1px solid rgba(209, 213, 219, 0.076);
+    -webkit-box-shadow: 0px 30px 61px 0px rgba(208, 157, 255, 0.217);
+    -moz-box-shadow: 0px 30px 61px 0px rgba(208, 157, 255, 0.217);
+    box-shadow: 0px 30px 61px 0px rgba(208, 157, 255, 0.217);
+}
+
+.account-gestion .container-component-account {
+    display: flex;
+    justify-content: space-between;
+    width:  90%;
+    align-items: center;
+} 
+.account-gestion h2 {
+    font-size: 3vw;
+}
+.money-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4em 1em 0.4em 1em;
+    background: rgba(255, 255, 255, 0.031);
+    font-size: 2vw;
+    border-radius: 0.8vw;
+}
+
+.bottom-container {
+    display: grid;
+    grid-template-columns: 70% auto; 
+    grid-gap: 2vw; 
+    width: 90vw; 
+    font-family: 'Poppins', sans-serif;
+    min-height: 600px
+}
+
+.cart-gestion-container {
+    display: flex;
+    flex-direction: column;
+    padding: 2vw;
+    backdrop-filter: blur(5px) saturate(100%);
+    -webkit-backdrop-filter: blur(5px) saturate(100%);
+    background: rgb(20,20,20);
+    background: linear-gradient(90deg, rgba(20, 20, 20, 0.532) 0%, rgba(18, 18, 18, 0.56) 100%);
+    h4 {
+       font-size: 2.2em;
+       margin-bottom: 1em;
+       font-weight: 600;
+       color: #9f99f7;
+       display: flex;
+       justify-content: center;
+    }
+}
+.product-gallery { 
+    position: relative;  
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .product {
+        display: flex;
+        flex-direction: column;
+        width: 31%; 
+        margin: 0 1% 1% 1%;
+        margin-bottom: 30px;
+        position: relative;
+        border-radius: 0.8vw;
+        height: auto;
+        background: rgb(15, 15, 15);  
+        color: rgb(255, 249, 242);
+        -webkit-box-shadow: -2px 39px 77px -7px rgba(139, 51, 255, 0.2);
+-moz-box-shadow: -2px 39px 77px -7px rgba(139, 51, 255, 0.2);
+box-shadow: -2px 39px 77px -7px rgba(139, 51, 255, 0.2);
+    }
+
+    .product-image {
+        border-radius: inherit;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        img {
+            border-top-left-radius: inherit;
+            border-top-right-radius: inherit;
+            width:100%;
+            min-height: 100%;
+            object-fit: contain;
+        
+        }
+    }
+}   
+
+
+.product {
+    .bottom-container-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 95%;
+        height: 160px;
+        padding: 20px;
+    }
+    h3 {
+        font-size: 1.2vw;
+        font-weight: 600;
+    
+    }
+    .price-quantity-container {
+        display: flex;
+        font-weight: 500;
+        font-size: 0.9vw;
+        .product-price {
+            margin-right: 20px;
+            color: #ee83e5;
+        }
+    }
+
+    
+    .delete-btn {
+        position: absolute;
+        top: 0.7vw; 
+        right: 0.7vw;
+        display: flex;
+        justify-content: center;
+        align-items: center ;
+        background: rgba(255, 30, 30, 0.837);
+        border: none;
+        width: 35px;
+        height: 35px;
+        border-radius: 0.2vw ; 
+        color: #ffff;
+    }
+    .delete-btn:hover {
+        cursor: pointer;
+        background: rgba(255, 47, 47, 0.664);
+        transition: 0.2s;
+    }
+    .buy-btn {
+        width: 50%;
+        height: 40px;
+        background: rgb(115,18,218);
+        background: linear-gradient(140deg, rgba(115,18,218,1) 0%, rgba(0,64,158,1) 100%);
+        border: none;
+        border-radius: 0.6em;
+        color: black;
+        font-weight: 700 ;
+        color: #ffffff;
+    }
+    .buy-btn:hover {
+        background: #ffffff7c;
+        cursor: pointer;
+    }
+    .stock-error, .sold-error {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+        height: 40px;
+        background: rgba(29, 29, 29, 0.379);
+        border: none;
+        border-radius: 0.6em;
+        color: black;
+        font-weight: 700 ;
+        color: #ff1111;
+    }
+}
+.order-gestion-container {
+    h4 {
+        font-size: 2.2em;
+        margin-bottom: 1em;
+        font-weight: 600;
+        color: #9f99f7;
+    }
+    z-index: 564;
+    background: rgb(20,20,20);
+    background: linear-gradient(90deg, rgba(20, 20, 20, 0.532) 0%, rgba(18, 18, 18, 0.56) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .order-history {
+        width: 90%;
+        padding: 2vw;
+    }
+    .order {
+        webkit-box-shadow: -2px 39px 77px -7px rgba(139, 51, 255, 0.2);
+        -moz-box-shadow: -2px 39px 77px -7px rgba(139, 51, 255, 0.2);
+        box-shadow: -2px 39px 77px -7px rgba(139, 51, 255, 0.2);
+        position: relative;
+        width: 100%;
+        background: rgb(20,20,20);
+        padding: 15px 20px 15px 20px;
+        box-sizing: border-box;
+        margin: 15px 0 10px 0;
+        border-radius: 0.8em;
+
+        span {
+            display: flex;
+        }
+        .first-line {
+            margin-bottom: 0.7em;
+        }
+        p {
+            color: white;
+            font-size: 1em;
+            margin-right: 3em;
+        }
+        .datetime {
+            position: absolute;
+            left: 8em;
+        }
+    }
+}
+
+@media screen and (max-width: 1660px) {
+    .product-gallery .product {
+        width: 48%;
+        margin: 0 1% 2% 1%;
+        h3 {
+            font-size: 1.8vw;
+        }
+        .price-quantity-container {
+            font-size: 1.2vw;
+        }
+        .buy-btn {
+            height: 35px;
+        }
+        .stock-error,.sold-error {
+            height: 35px;
+        }
+    }
+    .product {
+        .bottom-container-card {
+            height: 150px;
+        }
+    }
+    
+    .order .datetime {
+        font-size: 0.2em;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+
+    .bottom-container {
+        grid-template-columns: 50% auto;
+    }   
+    .product {
+        .bottom-container-card {
+            max-height: 150px;
+        }
+
+    }
+    .product-gallery .product {
+        width: 100%;
+        
+        margin: 0 0 4% 0;
+        h3 {
+            font-size: 1.8em;
+        }
+        .price-quantity-container {
+            font-size: 1em;    
+        }
+        .delete-btn {
+            right: 10px;
+            top: 10px;
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+
+    .account-gestion  {
+        height: 13vw;   
+    }
+    .account-gestion h2 {
+        font-size: 2.5em;
+    }
+    .account-gestion .money-container {
+        width: auto;
+        height: auto;
+        font-size: 2.0em;
+        padding: 0.3em 0.6em 0.3em 0.6em ;
+        /* background: green; */
+    }
+    .bottom-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .product-gallery .product {
+        flex-direction: row;
+        .product-image  {
+            width: 300px;
+        }
+    }
+}
+
+@media screen and (max-width: 700px) {
+    account-gestion  {
+        height: 13vw;   
+    }
+    .account-gestion  h2 {
+        font-size: 2em;
+    }
+    .account-gestion .money-container {
+        font-size: 1.6em;
+    }
+    .product-gallery .product {
+        .product-image  {
+            width: 350px;
+        }
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .bottom-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .product-gallery {
+        justify-content: center;
+    }
+    .product-gallery .product {
+        width: 80%;
+        flex-direction: column;
+        .product-image  {
+            width: 100%;
+        }
+    }
+}

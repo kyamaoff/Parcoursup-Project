@@ -1,0 +1,132 @@
+<nav>
+  <h1><a href="">Parcoursup Project</a></h1>
+  <div class="burger-menu" onclick="toggleMenu()"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);transform: msFilter"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path></svg></div>
+
+  <ul class="nav-links">
+    <li class="link-1"><a href="{{url_for('products.render_product_page')}}">Produits</a></li>
+    <li class="link-2"><a href="{{url_for('account.login')}}">Se connecter</a></li>
+    <li class="link-3"><a href="{{url_for('account.register')}}">S'inscrire</a></li>
+    <li class="link-4"><a href="https://github.com/kyamaoff/Parcoursup-Project"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);transform: msFilter"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.026 2c-5.509 0-9.974 4.465-9.974 9.974 0 4.406 2.857 8.145 6.821 9.465.499.09.679-.217.679-.481 0-.237-.008-.865-.011-1.696-2.775.602-3.361-1.338-3.361-1.338-.452-1.152-1.107-1.459-1.107-1.459-.905-.619.069-.605.069-.605 1.002.07 1.527 1.028 1.527 1.028.89 1.524 2.336 1.084 2.902.829.091-.645.351-1.085.635-1.334-2.214-.251-4.542-1.107-4.542-4.93 0-1.087.389-1.979 1.024-2.675-.101-.253-.446-1.268.099-2.64 0 0 .837-.269 2.742 1.021a9.582 9.582 0 0 1 2.496-.336 9.554 9.554 0 0 1 2.496.336c1.906-1.291 2.742-1.021 2.742-1.021.545 1.372.203 2.387.099 2.64.64.696 1.024 1.587 1.024 2.675 0 3.833-2.33 4.675-4.552 4.922.355.308.675.916.675 1.846 0 1.334-.012 2.41-.012 2.737 0 .267.178.577.687.479C19.146 20.115 22 16.379 22 11.974 22 6.465 17.535 2 12.026 2z"></path></svg></a></li>
+  </ul>
+</nav>
+<script>
+    function toggleMenu() {
+        let navLinks = document.querySelector('.nav-links');
+        navLinks.classList.toggle('active');
+    }
+</script>
+<style>
+  
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+nav {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    width: 90vw;
+    height: 70px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+nav .burger-menu {
+    background: none;
+    border: none;
+    display: none;
+}
+nav .burger-menu:hover {
+    cursor: pointer;
+}
+nav svg {
+    width: 50px;
+    height: 50px;
+}
+nav h1 a {
+    font-size: 2.1em;
+    font-weight:600 ;
+}
+nav a {
+    color: white;
+}
+nav .nav-links {
+    display: flex;
+    width: 30%;
+    align-items: center;
+    justify-content: space-between;
+}
+nav .nav-links a {
+    font-size: 1.2em;
+}
+.nav-links .link-2, .link-3 {
+    border-radius: 0.3em;
+    padding: 10px 15px 10px 15px;
+    background: beige;
+    font-size: 1em;
+}
+.nav-links .link-2 {
+    background: rgb(115,18,218);
+    background: linear-gradient(140deg, rgba(115,18,218,1) 0%, rgba(0,64,158,1) 100%);
+}
+.nav-links .link-2:hover {
+    background: rgb(115,18,218);
+    background: linear-gradient(140deg, rgba(115,18,218,.7) 0%, rgba(0,64,158,.7) 100%);
+}
+
+.nav-links .link-3 {
+    background: rgb(255,85,23);
+    transition: 0.3s;
+    background: linear-gradient(140deg, rgba(255,85,23,1) 0%, rgba(222,154,17,1) 100%);
+}
+.nav-links .link-3:hover {
+    background: rgb(255,85,23);
+    background: linear-gradient(140deg, rgba(255,85,23,.7) 0%, rgba(222,154,17,.7) 100%);
+    transition: 0.3s;
+}
+.nav-links svg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 454px;
+}
+
+.nav-links svg:hover {
+    background: #bfbfbf35;
+    transition-duration: 0.5s;
+}
+@media screen and (max-width:1600px) {
+    nav .nav-links {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width:1300px) {
+    nav .nav-links {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width:800px) {
+    nav .burger-menu {
+        display: block;
+        z-index: 56555;
+    }
+    nav .nav-links {
+        flex-direction: column;
+        position:fixed;
+        top: 0;
+        right: 0;
+        margin-right: -50vw;
+        width: 50vw;
+        height: 100vh;
+        padding: 30vh 0 30vh 0;
+        box-sizing: border-box;
+        background: #040404a0;
+        backdrop-filter: blur(10px); 
+        z-index: 56445;
+        transition: all 0.5s ease-out;
+    }
+    nav .nav-links.active {
+        margin-right: 0;
+        }
+}
+</style>

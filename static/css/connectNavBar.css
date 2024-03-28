@@ -1,0 +1,77 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+nav {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    width: 90vw;
+    height: 70px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+nav h1 a {
+    font-size: 2.1em;
+    font-weight:600 ;
+}
+nav a {
+    color: white;
+}
+nav .nav-links {
+    display: flex;
+    width: 15%;
+    align-items: center;
+    justify-content: space-between;
+}
+nav .nav-links a {
+    font-size: 1.2em;
+}
+/* .nav-links .link-2, .link-3 {
+    border-radius: 0.3em;
+    padding: 10px 15px 10px 15px;
+    background: beige;
+    font-size: 1em;
+} */
+/* .nav-links .link-2 {
+    background: rgb(115,18,218);
+    background: linear-gradient(140deg, rgba(115,18,218,1) 0%, rgba(0,64,158,1) 100%);
+}
+.nav-links .link-2:hover {
+    background: rgb(115,18,218);
+    background: linear-gradient(140deg, rgba(115,18,218,.7) 0%, rgba(0,64,158,.7) 100%);
+}
+
+.nav-links .link-3 {
+    background: rgb(255,85,23);
+    transition: 0.3s;
+    background: linear-gradient(140deg, rgba(255,85,23,1) 0%, rgba(222,154,17,1) 100%);
+}
+.nav-links .link-3:hover {
+    background: rgb(255,85,23);
+    background: linear-gradient(140deg, rgba(255,85,23,.7) 0%, rgba(222,154,17,.7) 100%);
+    transition: 0.3s;
+} */
+.nav-links svg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 454px;
+}
+
+.nav-links svg:hover {
+    background: #bfbfbf35;
+    transition-duration: 0.5s;
+}
+@media screen and (max-width:1600px) {
+    nav .nav-links {
+        width: 22%;
+    }
+}
+
+@media screen and (max-width:1300px) {
+    nav .nav-links {
+        width: 30%;
+    }
+}
+
